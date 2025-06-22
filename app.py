@@ -24,6 +24,7 @@ if st.button("Generate Images"):
     cols = st.columns(5)
     for i in range(5):
         fig, ax = plt.subplots()
-        ax.imshow(images[i][0], cmap="gray")
+        img = images[i].squeeze().numpy()  # Shape becomes (28, 28)
+        ax.imshow(img, cmap="gray")
         ax.axis("off")
-        cols[i].pyplot(fig)
+        st.pyplot(fig)
